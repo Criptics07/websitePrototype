@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Restaurant Menu</title>
+    <style>
+        .menu-item {
+            display: inline-block;
+            width: 20%;
+            text-align: center;
+            margin: 1%;
+        }
+        .menu-item-image {
+            max-width: 100%;
+            max-height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Restaurant Menu</h1>
+    
+    <div id="menu-items"></div>
+
+    <script src="menu.js"></script>
+    
+    <script>
+        function generateMenu() {
+            const menuContainer = document.getElementById("menu-items");
+
+            foodItems.forEach((item) => {
+                const menuItemDiv = document.createElement("div");
+                menuItemDiv.classList.add("menu-item");
+
+                const imageElement = document.createElement("img");
+                imageElement.classList.add("menu-item-image");
+                imageElement.src = item.image;
+
+                const nameElement = document.createElement("div");
+                nameElement.textContent = item.name;
+
+                const priceElement = document.createElement("div");
+                priceElement.textContent = item.price;
+
+                menuItemDiv.appendChild(imageElement);
+                menuItemDiv.appendChild(nameElement);
+                menuItemDiv.appendChild(priceElement);
+
+                menuContainer.appendChild(menuItemDiv);
+            });
+        }
+
+        generateMenu();
+    </script>
+</body>
+</html>
+
